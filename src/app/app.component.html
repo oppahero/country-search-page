@@ -1,12 +1,16 @@
-<nav>
-  <span>Where in the world?</span>
-  <ng-icon name="heroMoon"></ng-icon>
-  <div>Dark Mode</div>
-</nav>
+<header>
+  <app-nav></app-nav>
+</header>
+<main>
+  <div class="search">
+    <ng-icon
+      aria-hidden="false"
+      color="grey"
+      size="26"
+      name="heroMagnifyingGlass"
+    ></ng-icon>
+    <input type="text" placeholder="Search for a country..." />
+  </div>
 
-<div class="search">
-  <ng-icon name="heroMagnifyingGlass"></ng-icon>
-  <input type="text" placeholder="Search for a country..." />
-</div>
-
-<div class="container"></div>
+  <div class="container"></div>
+</main>
