@@ -1,5 +1,12 @@
 /* You can add global styles to this file, and also import other style files */
 
+@import "assets/styles/piccalilli.css";
+
+@font-face {
+  font-family: "NunitoSans";
+  src: url("assets/font/NunitoSans.ttf") format("truetype");
+}
+
 :root {
   --dark-blue-elements: hsl(209, 23%, 22%);
   --very-dark-blue-bg: hsl(207, 26%, 17%);
@@ -9,11 +16,75 @@
   --white: hsl(0, 0%, 100%);
 }
 
-@font-face {
-  font-family: "NunitoSans";
-  src: url("assets/font/NunitoSans.ttf") format("truetype");
+* {
+  margin: 0;
+  padding: 0;
 }
 
 body {
   font-family: NunitoSans;
+  min-height: 100vh;
+  background: var(--very-light-gray);
+  min-width: 320px;
+}
+
+main {
+  padding: 48px 33px;
+}
+
+input {
+  font-size: 20px;
+  outline: none;
+  border: none;
+  width: 100%;
+}
+
+.nav-bar {
+  padding: 65.75px 31px;
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+  justify-content: space-between;
+  background: var(--white);
+  box-shadow: 0 0 10px  hsla(0, 0%, 52%, 0.288);
+}
+
+.nav-bar__title,
+.nav-bar__theme {
+  font-size: 19px;
+}
+
+.nav-bar__title {
+  font-weight: 800;
+}
+
+.nav-bar__theme {
+  font-weight: 600;
+}
+
+.nav-bar__theme {
+  display: flex;
+  gap: 10px;
+}
+
+.search {
+  padding: 30px 60px;
+  border-radius: 8px;
+  background: var(--white);
+  box-shadow: 0 0 10px hsla(0, 0%, 52%, 0.158);
+  display: flex;
+  gap: 20px;
+}
+
+/* For dark mode */
+
+.dark .nav-bar {
+  color: var(--white);
+}
+
+@media screen and (500px <= width) {
+  .nav-bar {
+    flex-direction: row;
+    gap: none;
+  }
 }
