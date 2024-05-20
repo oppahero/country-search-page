@@ -1,9 +1,13 @@
 <article class="card" *ngIf="country">
-  <img [src]="country.flags.svg" alt="{{country.name}} flag" />
+  <div >
+    <img height="321" [src]="country.flags.svg" alt="{{ country.name }} flag" />
+  </div>
   <div class="card__body">
-    <h2>{{ country.name }}</h2>
-    <p><strong>Population:</strong> {{ country.population }}</p>
-    <p><strong>Region:</strong> {{ country.region }}</p>
-    <p><strong>Capital:</strong> {{ country.capital }}</p>
+    <h2 class="card__body__country">{{ country.name }}</h2>
+    <div class="card__body__info">
+      <p><strong>Population:</strong> {{ country.population }}</p>
+      <p><strong>Region:</strong> {{ country.region }}</p>
+      <p><strong>Capital:</strong> {{ country.capital }}</p>
+    </div>
   </div>
 </article>

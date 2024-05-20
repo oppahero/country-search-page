@@ -1,13 +1,29 @@
-<div class="search">
-  <ng-icon
-    aria-hidden="false"
-    color="grey"
-    size="26"
-    name="heroMagnifyingGlass"
-  ></ng-icon>
-  <input type="text" placeholder="Search for a country..." />
-</div>
+<section class="flex-container">
+  <div class="search">
+    <ng-icon
+      aria-hidden="false"
+      color="grey"
+      size="26"
+      name="heroMagnifyingGlass"
+    ></ng-icon>
+    <input
+      class="search__input"
+      type="text"
+      placeholder="Search for a country..."
+    />
+  </div>
+  <select class="filter"  name="select">
+    <option  selected>Filter by Region</option>
+    @for (country of countries; track $index) {
+    <option [value]="country.name">{{ country.name }}</option>
+    }
+  </select>
+</section>
 
-@for (country of countries; track $index) {
-  <app-item-card [country]='country' ></app-item-card>
-}
+<br />
+
+<section class="content">
+  @for (country of countries; track $index) {
+  <app-item-card [country]="country"></app-item-card>
+  }
+</section>
