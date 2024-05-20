@@ -8,5 +8,6 @@
   <input type="text" placeholder="Search for a country..." />
 </div>
 
-
-<p>country-list works!</p>
+@for (country of countries; track $index) {
+  <app-item-card [country]='country' ></app-item-card>
+}
