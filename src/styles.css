@@ -125,6 +125,7 @@ header{
 
 .card img {
   height: 220px;
+  cursor: pointer;
 }
 
 .card h2 {

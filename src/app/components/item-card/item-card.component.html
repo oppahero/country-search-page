@@ -1,5 +1,10 @@
 <article class="card" *ngIf="country">
-  <img [src]="country.flag" alt="{{ country.name }} flag" />
+  <img
+    [src]="country.flag"
+    alt="{{ country.name }} flag"
+    [routerLink]="['/', getId() ]"
+    routerLinkActive="router-link-active"
+  />
   <div class="card__body">
     <h2 class="card__body__country">{{ country.name }}</h2>
     <div class="card__body__info">
