@@ -1,7 +1,5 @@
 <article class="card" *ngIf="country">
-  <div >
-    <img height="321" [src]="country.flags.svg" alt="{{ country.name }} flag" />
-  </div>
+  <img [src]="country.flag" alt="{{ country.name }} flag" />
   <div class="card__body">
     <h2 class="card__body__country">{{ country.name }}</h2>
     <div class="card__body__info">
