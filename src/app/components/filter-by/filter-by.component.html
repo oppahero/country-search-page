@@ -1,0 +1,11 @@
+<select
+  class="filter"
+  name="select"
+  [(ngModel)]="selected"
+  (ngModelChange)="selectChange()"
+>
+  <option selected value="">Filter by Region</option>
+  @for (region of regions; track $index) {
+  <option [value]="region">{{ region }}</option>
+  }
+</select>
