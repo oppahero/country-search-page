@@ -1,14 +1,27 @@
-ul{
-    list-style: none;
+ul {
+  list-style: none;
 }
 
-button{
-    padding: 19px 46px;
-    border: none;
-    border-radius: 8px;
-    box-shadow: 0 0 10px hsla(0, 0%, 52%, 0.603);;
-    background: var(--white);
-    display: flex;
-    align-items: center;
-    gap: 18px;
+button {
+  padding: 19px 46px;
+  border: none;
+  border-radius: 8px;
+  box-shadow: 0 0 10px hsla(0, 0%, 52%, 0.603);
+  background: var(--white);
+  display: flex;
+  align-items: center;
+  gap: 18px;
+}
+
+.country {
+  display: grid;
+  row-gap: 98px;
+  column-gap: 119px;
+  max-width: 1283px;
+}
+
+@media screen and (min-width: 900px) {
+  .country {
+    grid-template-columns: repeat(2, 1fr);
+  }
 }
