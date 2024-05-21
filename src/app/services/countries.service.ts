@@ -21,4 +21,10 @@ export class CountriesService {
   getAllCountries (): Observable<Country[]> {
     return this.http.get<Country[]>(this.url)
   }
+
+  // return this.http.get<Country[]>(this.url).pipe(
+  //   tap((countries) => {
+  //     return countries.find(country => country.name.localeCompare(countryName))
+  //   })
+  // )
 }

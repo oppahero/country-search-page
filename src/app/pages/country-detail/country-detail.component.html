@@ -1,1 +1,68 @@
-<p>country-detail works!</p>
+<button (click)="back()">
+  <ng-icon
+    aria-hidden="false"
+    color="black"
+    size="26"
+    name="heroArrowLeft"
+  ></ng-icon>
+  Back
+</button>
+
+<article class="country">
+  <img
+    [src]="country?.flag"
+    alt="{{ country?.name }}"
+    onerror="this.src='../../../assets/img/flag-not-found.webp'"
+  />
+  <div class="country__info">
+    <h1>{{ country?.name }}</h1>
+    <div class="country__info__detail">
+      <ul>
+        <li>
+          <p><strong>Native Name:</strong> {{ country?.nativeName }}</p>
+        </li>
+        <li>
+          <p>
+            <strong>Population: </strong>
+            {{ country?.population }}
+          </p>
+        </li>
+        <li>
+          <p><strong>Region:</strong> {{ country?.region }}</p>
+        </li>
+        <li>
+          <p><strong>Sub Region:</strong> {{ country?.subregion }}</p>
+        </li>
+        <li>
+          <p><strong>Capital:</strong> {{ country?.capital }}</p>
+        </li>
+      </ul>
+      <ul>
+        <li>
+          <p><strong>Top Level Domain:</strong></p>
+          @for (domain of country?.topLevelDomain; track $index) {
+          <span>{{ domain }}</span>
+          }
+        </li>
+        <li>
+          <p><strong>Currencies:</strong></p>
+          @for (currencie of country?.currencies; track $index) {
+          <span>{{ currencie.name }}</span>
+          }
+        </li>
+        <li>
+          <p><strong>Languages:</strong></p>
+          @for (language of country?.languages; track $index) {
+          <span>{{ language.name }}</span>
+          }
+        </li>
+      </ul>
+    </div>
+    <div>
+      <h2>Border Countries:</h2>
+      <!-- <ul>
+        <li><p></p></li>
+      </ul> -->
+    </div>
+  </div>
+</article>
