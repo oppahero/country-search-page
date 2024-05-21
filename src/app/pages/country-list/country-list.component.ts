@@ -14,6 +14,7 @@ export class CountryListComponent implements OnInit {
   countriesService: CountriesService = inject(CountriesService)
   countries!: Country[]
   filterCountries!: Country[]
+  region: string = ''
 
   ngOnInit (): void {
     this.countriesService.getAllCountries()
@@ -37,6 +38,14 @@ export class CountryListComponent implements OnInit {
   }
 
   filterByRegion (region: string): void {
-    this.filterCountries = (region !== '') ? this.countries.filter(item => item.region === region) : this.countries
+    this.region = region
+
+    this.filterCountries = (region !== '')
+      ? this.countries.filter(country => country.region === region)
+      : this.countries
+  }
+
+  filterByCountry (name: string): void {
+    if (name !== '') { this.filterCountries = this.filterCountries.filter(country => country.name.startsWith(name)) } else this.filterByRegion(this.region)
   }
 }

@@ -1,6 +1,11 @@
 <section class="flex-container">
-  <app-search-input></app-search-input>
-  <app-filter-by [countries]="countries" (selectedEvent)="filterByRegion($event)"></app-filter-by>
+  <app-search-input
+  (searchEvent)="filterByCountry($event)"
+  ></app-search-input>
+  <app-filter-by
+    [countries]="countries"
+    (selectedEvent)="filterByRegion($event)"
+  ></app-filter-by>
 </section>
 
 <section class="content">
