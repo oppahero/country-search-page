@@ -1,5 +1,8 @@
 ul {
   list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 34px;
 }
 
 button {
@@ -8,20 +11,130 @@ button {
   border-radius: 8px;
   box-shadow: 0 0 10px hsla(0, 0%, 52%, 0.603);
   background: var(--white);
+  cursor: pointer;
   display: flex;
   align-items: center;
   gap: 18px;
 }
 
+li {
+  font-size: 25px;
+  font-weight: 300;
+}
+
+strong {
+  font-weight: 600;
+}
+
+h2 {
+  font-size: 28px;
+}
+
 .country {
+  max-width: 1283px;
+  /* max-height: 401px; */
+  margin-top: 90px;
   display: grid;
   row-gap: 98px;
   column-gap: 119px;
-  max-width: 1283px;
 }
 
-@media screen and (min-width: 900px) {
+.country img {
+  max-height: 458px;
+}
+
+.country__info__name {
+  font-size: 40px;
+  margin-bottom: 58px;
+}
+
+.country__info__detail {
+  margin-bottom: 92px;
+  display: flex;
+  flex-direction: column;
+  gap: 99px;
+}
+
+.country__info__border {
+  display: flex;
+  flex-direction: column;
+  gap: 44px;
+}
+
+.country__info__border__country {
+  padding: 10px 20px;
+  background: var(--white);
+  box-shadow: 0 0 10px hsla(0, 0%, 52%, 0.267);
+  border-radius: 8px;
+}
+
+.country__info__border ul {
+  flex-direction: row;
+  flex-wrap: wrap;
+  gap: 20px;
+}
+
+@media screen and (min-width: 750px) {
+  .box {
+    padding: 32px 21px;
+  }
+
   .country {
+    margin-top: 127px;
+  }
+}
+
+@media screen and (min-width: 1200px) {
+  .box {
+    padding: 32px 0;
+  }
+
+  .country {
+    margin-top: 79px;
     grid-template-columns: repeat(2, 1fr);
+  }
+
+  .country img {
+    max-height: 401px;
+  }
+
+  .country__info__detail {
+    margin-bottom: 62px;
+    flex-direction: row;
+    justify-content: space-between;
+    gap: 0;
+  }
+
+  .country__info__name {
+    font-size: 31px;
+    margin-top: 45px;
+    margin-bottom: 24px;
+  }
+
+  .country__info__border {
+    flex-direction: row;
+    gap: 10px;
+    align-items: center;
+  }
+
+  .country__info__border__country {
+    padding: 8px 10px;
+  }
+
+  li,
+  .country__info__border h2 {
+    font-size: 19px;
+  }
+
+  ul {
+    gap: 13px;
+  }
+
+  .country__info__border ul {
+    gap: 16px;
+  }
+
+  .country__info__border li{
+    font-size: 15px;
   }
 }
