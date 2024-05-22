@@ -20,6 +20,7 @@ export class CountryDetailComponent implements OnInit {
   location = inject(Location)
 
   country: Country | undefined
+  borderCountries!: string[]
 
   ngOnInit (): void {
     const param = this.activedRouter.snapshot.params['country']
@@ -33,6 +34,7 @@ export class CountryDetailComponent implements OnInit {
         next: (countries) => {
           this.country = countries.find(country => country.name.toLowerCase() === countryName)
           console.log(this.country)
+          this.getBorderCountries(countries)
         },
         error: (e) => console.error(e)
       }
@@ -41,5 +43,24 @@ export class CountryDetailComponent implements OnInit {
 
   back (): void {
     this.location.back()
+  }
+
+  languages (): string {
+    const languages = this.country?.languages?.map(obj => obj.name)
+    return languages?.join(', ') ?? ''
+  }
+
+  currencies (): string {
+    const currencies = this.country?.currencies?.map(obj => obj.name)
+    return currencies?.join(', ') ?? ''
+  }
+
+  topLevelDomain (): string {
+    return this.country?.topLevelDomain?.join(',') ?? ''
+  }
+
+  getBorderCountries (allCountries: Country[]): void {
+    const borders = this.country?.borders ?? []
+    this.borderCountries = allCountries.filter(obj => borders.includes(obj.alpha3Code))?.map(obj => obj.name)
   }
 }
