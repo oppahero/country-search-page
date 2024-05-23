@@ -32,7 +32,6 @@ h2 {
 
 .country {
   max-width: 1283px;
-  /* max-height: 401px; */
   margin-top: 90px;
   display: grid;
   row-gap: 98px;
