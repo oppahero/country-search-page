@@ -154,8 +154,28 @@ h1 {
 
 /* For dark mode */
 
-.dark .nav-bar {
+.dark {
   color: var(--white);
+  background: var(--very-dark-blue-bg);
+}
+
+.dark .box button,
+.dark .filter {
+  color: var(--white);
+}
+
+.dark header,
+.dark .search,
+.dark .card,
+.dark .filter,
+.dark .box button {
+  background: var(--dark-blue-elements);
+  box-shadow: 0 0 15px hsla(200, 15%, 8%, 0.212);
+}
+
+.dark .search__input {
+  color: var(--white);
+  background: var(--dark-blue-elements);
 }
 
 @media screen and (500px <= width) {

@@ -73,6 +73,10 @@ h2 {
   gap: 20px;
 }
 
+.dark .country__info__border__country {
+  background: var(--dark-blue-elements);
+}
+
 @media screen and (min-width: 750px) {
   .box {
     padding: 32px 21px;
@@ -133,7 +137,7 @@ h2 {
     gap: 16px;
   }
 
-  .country__info__border li{
+  .country__info__border li {
     font-size: 15px;
   }
 }
