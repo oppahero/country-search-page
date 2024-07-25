@@ -9,7 +9,7 @@ button {
   padding: 19px 46px;
   border: none;
   border-radius: 8px;
-  box-shadow: 0 0 10px hsla(0, 0%, 52%, 0.603);
+  box-shadow: 0 0 10px hsla(0, 0%, 52%, 0.295);
   background: var(--white);
   cursor: pointer;
   display: flex;
@@ -44,26 +44,26 @@ h2 {
 
 .country__info__name {
   font-size: 40px;
-  margin-bottom: 58px;
+  margin-bottom: 56px;
 }
 
 .country__info__detail {
-  margin-bottom: 92px;
+  margin-bottom: 90px;
   display: flex;
   flex-direction: column;
-  gap: 99px;
+  gap: 97px;
 }
 
 .country__info__border {
   display: flex;
   flex-direction: column;
-  gap: 44px;
+  gap: 42px;
 }
 
 .country__info__border__country {
   padding: 10px 20px;
   background: var(--white);
-  box-shadow: 0 0 10px hsla(0, 0%, 52%, 0.267);
+  box-shadow: 0 0 10px hsla(0, 0%, 75%, 0.116);
   border-radius: 8px;
 }
 
@@ -85,11 +85,19 @@ h2 {
   .country {
     margin-top: 127px;
   }
+
+  .box__button {
+    width: 207px;
+  }
 }
 
 @media screen and (min-width: 1200px) {
   .box {
-    padding: 32px 0;
+    padding: 37px 0;
+  }
+
+  .box__button {
+    width: 163px;
   }
 
   .country {
@@ -98,7 +106,8 @@ h2 {
   }
 
   .country img {
-    max-height: 401px;
+    /* max-height: 557px; */
+    min-height: 398px;
   }
 
   .country__info__detail {
@@ -111,12 +120,13 @@ h2 {
   .country__info__name {
     font-size: 31px;
     margin-top: 45px;
-    margin-bottom: 24px;
+    /* margin-bottom: 24px; */
+    margin-bottom: 31px;
   }
 
   .country__info__border {
     flex-direction: row;
-    gap: 10px;
+    gap: 16px;
     align-items: center;
   }
 
