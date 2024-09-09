@@ -25,7 +25,7 @@
           <li>
             <p>
               <strong>Population: </strong>
-              {{ country?.population }}
+              {{ country?.population | number:'1.0':'en-US'  }}
             </p>
           </li>
           <li>
@@ -39,9 +39,9 @@
           </li>
         </ul>
         <ul>
-          <li><strong>Top Level Domain:</strong> {{ topLevelDomain() }}</li>
-          <li><strong>Currencies:</strong> {{ currencies() }}</li>
-          <li><strong>Languages:</strong> {{ languages() }}</li>
+          <li><p><strong>Top Level Domain:</strong> {{ topLevelDomain() }}</p></li>
+          <li><p><strong>Currencies:</strong> {{ currencies() }}</p></li>
+          <li><p><strong>Languages:</strong> {{ languages() }}</p></li>
         </ul>
       </section>
       <section class="country__info__border">
