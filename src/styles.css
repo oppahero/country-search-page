@@ -178,6 +178,11 @@ h1 {
   background: var(--dark-blue-elements);
 }
 
+.dark .country__info__border__country {
+  background: var(--dark-blue-elements) !important;
+  box-shadow: 0 0 15px hsla(200, 15%, 8%, 0.212) !important;
+}
+
 @media screen and (500px <= width) {
   .nav-bar {
     flex-direction: row;

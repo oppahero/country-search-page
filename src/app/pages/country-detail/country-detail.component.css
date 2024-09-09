@@ -73,9 +73,6 @@ h2 {
   gap: 20px;
 }
 
-.dark .country__info__border__country {
-  background: var(--dark-blue-elements);
-}
 
 @media screen and (min-width: 750px) {
   .box {
