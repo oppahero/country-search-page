@@ -4,12 +4,12 @@ import { CountriesService } from '../../services/countries.service'
 import { Country } from '../../interfaces'
 import { NgIconComponent, provideIcons } from '@ng-icons/core'
 import { heroArrowLeft } from '@ng-icons/heroicons/outline'
-import { Location } from '@angular/common'
+import { CommonModule, Location } from '@angular/common'
 
 @Component({
   selector: 'app-country-detail',
   standalone: true,
-  imports: [NgIconComponent],
+  imports: [NgIconComponent, CommonModule],
   templateUrl: './country-detail.component.html',
   styleUrl: './country-detail.component.css',
   providers: [provideIcons({ heroArrowLeft })]
