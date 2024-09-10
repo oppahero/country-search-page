@@ -85,11 +85,9 @@ h1 {
 
 .nav-bar__theme {
   font-weight: 600;
-}
-
-.nav-bar__theme {
   display: flex;
   gap: 10px;
+  cursor: pointer;
 }
 
 .flex-container {
