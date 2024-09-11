@@ -7,8 +7,7 @@ import { RouterModule } from '@angular/router'
   selector: 'app-item-card',
   standalone: true,
   imports: [CommonModule, RouterModule],
-  templateUrl: './item-card.component.html',
-  styleUrl: './item-card.component.css'
+  templateUrl: './item-card.component.html'
 })
 export class ItemCardComponent {
   @Input() country!: Country

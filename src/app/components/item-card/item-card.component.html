@@ -8,9 +8,9 @@
   <div class="card__body">
     <h2 class="card__body__country">{{ country.name }}</h2>
     <div class="card__body__info">
-      <p><strong>Population:</strong> {{ country.population | number:'1.0':'en-US' }}</p>
-      <p><strong>Region:</strong> {{ country.region }}</p>
-      <p><strong>Capital:</strong> {{ country.capital }}</p>
+      <p class="card__body__info__population"><strong>Population:</strong> {{ country.population | number:'1.0':'en-US' }}</p>
+      <p class="card__body__info__region"><strong>Region:</strong> {{ country.region }}</p>
+      <p class="card__body__info__capital"><strong>Capital:</strong> {{ country.capital }}</p>
     </div>
   </div>
 </article>
