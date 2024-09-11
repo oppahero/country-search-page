@@ -6,8 +6,7 @@ import { FormsModule } from '@angular/forms'
   selector: 'app-filter-by',
   standalone: true,
   imports: [FormsModule],
-  templateUrl: './filter-by.component.html',
-  styleUrl: './filter-by.component.css'
+  templateUrl: './filter-by.component.html'
 })
 export class FilterByComponent {
   selected: string = ''
