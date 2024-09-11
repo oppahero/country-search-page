@@ -11,8 +11,7 @@ import {
   selector: 'app-country-list',
   standalone: true,
   imports: [ItemCardComponent, SearchInputComponent, FilterByComponent],
-  templateUrl: './country-list.component.html',
-  styleUrl: './country-list.component.css'
+  templateUrl: './country-list.component.html'
 })
 export class CountryListComponent implements OnInit {
   countriesService: CountriesService = inject(CountriesService)
@@ -31,11 +30,11 @@ export class CountryListComponent implements OnInit {
   }
 
   // eslint-disable-next-line @typescript-eslint/explicit-function-return-type
-  async getWithFetchApi () {
-    await this.countriesService.getCountries().then((res: Country[]) => {
-      this.countries = res
-    })
-  }
+  // async getWithFetchApi () {
+  //   await this.countriesService.getCountries().then((res: Country[]) => {
+  //     this.countries = res
+  //   })
+  // }
 
   filterByRegion (region: string): void {
     this.region = region
