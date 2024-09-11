@@ -16,7 +16,6 @@ import { ScriptService } from '../../services/script.service'
       </div>
     </nav>
   `,
-  styleUrls: ['./nav.component.css'],
   providers: [provideIcons({ heroMoon })]
 })
 export class NavComponent implements OnInit {
