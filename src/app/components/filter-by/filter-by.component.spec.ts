@@ -3,17 +3,13 @@ import { ComponentFixture, TestBed } from '@angular/core/testing'
 import { FilterByComponent } from './filter-by.component'
 import { FormsModule } from '@angular/forms'
 import mock from '../../../../db.json'
-import { By } from '@angular/platform-browser'
-import { DebugElement } from '@angular/core'
 
-describe('FilterByComponent', () => {
+fdescribe('FilterByComponent', () => {
   let component: FilterByComponent
   let fixture: ComponentFixture<FilterByComponent>
 
-  const expectedCountries = mock.data
+  const mockedCountries = mock.data
   const expectedRegion = 'Asia'
-
-  let selectDe: DebugElement
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
@@ -24,8 +20,7 @@ describe('FilterByComponent', () => {
     component = fixture.componentInstance
     fixture.detectChanges()
 
-    fixture.componentRef.setInput('countries', expectedCountries)
-    selectDe = fixture.debugElement.query(By.css('.filter'))
+    fixture.componentRef.setInput('countries', mockedCountries)
 
     await fixture.whenStable()
   })
@@ -36,31 +31,16 @@ describe('FilterByComponent', () => {
 
   it('set countries: should recover the different regions available to filter', () => {
     expect(component.regions.length).toBeGreaterThanOrEqual(8)
-    console.log(component.regions.length)
   })
 
-  // it('should raise selected event when clicked (triggerEventHandler)', () => {
-  // TODO: falta desarrollar test
-  //   let selectedRegion: string | undefined
+  it('#selectChange should raise selectedEvent when ngModelChange', () => {
+    component.selected = expectedRegion
 
-  //   component.selectedEvent.subscribe((region: string) => (selectedRegion = region))
+    spyOn(component.selectedEvent, 'emit')
 
-  //   selectDe.triggerEventHandler('click')
+    component.selectChange()
 
-  //   expect(selectedRegion).toBe(selectedRegion)
-  // })
-
-  // it('should raise selected event when clicked (triggerEventHandler)', () => {
-  //   component.selected = expectedRegion
-
-  //   fixture.detectChanges()
-
-  //   let selectedRegion: string | undefined
-
-  //   component.selectedEvent.subscribe((region: string) => (selectedRegion = region))
-
-  //   selectDe.triggerEventHandler('click')
-
-  //   // expect(selectedRegion).toBe(expectedRegion)
-  // })
+    expect(component.selectedEvent.emit).toHaveBeenCalled()
+    expect(component.selectedEvent.emit).withContext('selected in the dropdown').toHaveBeenCalledWith(expectedRegion)
+  })
 })

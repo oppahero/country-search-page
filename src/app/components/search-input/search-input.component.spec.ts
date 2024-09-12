@@ -4,7 +4,7 @@ import { NgIconComponent } from '@ng-icons/core'
 import { FormsModule } from '@angular/forms'
 import { By } from '@angular/platform-browser'
 
-fdescribe('SearchInputComponent', () => {
+describe('SearchInputComponent', () => {
   let component: SearchInputComponent
   let fixture: ComponentFixture<SearchInputComponent>
 
