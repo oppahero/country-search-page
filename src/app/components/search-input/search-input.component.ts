@@ -8,9 +8,7 @@ import { FormsModule } from '@angular/forms'
   standalone: true,
   imports: [NgIconComponent, FormsModule],
   templateUrl: './search-input.component.html',
-  styleUrl: './search-input.component.css',
   providers: [provideIcons({ heroMagnifyingGlass })]
-
 })
 export class SearchInputComponent {
   searchBy: string = ''
