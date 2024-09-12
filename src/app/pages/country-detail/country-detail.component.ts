@@ -1,10 +1,11 @@
-import { Component, OnInit, inject } from '@angular/core'
-import { ActivatedRoute } from '@angular/router'
+/* eslint-disable @typescript-eslint/prefer-readonly */
 import { CountriesService } from '../../services/countries.service'
-import { Country } from '../../interfaces'
 import { NgIconComponent, provideIcons } from '@ng-icons/core'
 import { heroArrowLeft } from '@ng-icons/heroicons/outline'
+import { Component, OnInit, inject } from '@angular/core'
 import { CommonModule, Location } from '@angular/common'
+import { ActivatedRoute } from '@angular/router'
+import { Country } from '../../interfaces'
 
 @Component({
   selector: 'app-country-detail',
@@ -15,30 +16,37 @@ import { CommonModule, Location } from '@angular/common'
   providers: [provideIcons({ heroArrowLeft })]
 })
 export class CountryDetailComponent implements OnInit {
-  activedRouter = inject(ActivatedRoute)
+  activatedRoute = inject(ActivatedRoute)
   countriesService = inject(CountriesService)
   location = inject(Location)
 
   country: Country | undefined
   borderCountries!: string[]
 
+  // constructor (
+  //   private activatedRoute: ActivatedRoute,
+  //   private countriesService: CountriesService,
+  //   private location: Location
+  // ) {}
+
   ngOnInit (): void {
-    const param = this.activedRouter.snapshot.params['country']
+    const param: string = this.activatedRoute.snapshot.params['country']
     const countryName = param.replace(/-/g, ' ')
     this.consult(countryName)
   }
 
   consult (countryName: string): void {
-    this.countriesService.getAllCountries().subscribe(
-      {
-        next: (countries) => {
-          this.country = countries.find(country => country.name.toLowerCase() === countryName)
-          console.log(this.country)
-          this.getBorderCountries(countries)
-        },
-        error: (e) => console.error(e)
-      }
-    )
+    this.countriesService.getAllCountries().subscribe({
+      next: (countries) => {
+        // this.findCountry(countries, countryName)
+        // this.getBorderCountries(countries)
+      },
+      error: (e) => console.error(e)
+    })
+  }
+
+  findCountry (countries: Country[], countryName: string): void {
+    this.country = countries.find((country) => country.name.toLowerCase() === countryName)
   }
 
   back (): void {
@@ -46,12 +54,12 @@ export class CountryDetailComponent implements OnInit {
   }
 
   languages (): string {
-    const languages = this.country?.languages?.map(obj => obj.name)
+    const languages = this.country?.languages?.map((obj) => obj.name)
     return languages?.join(', ') ?? ''
   }
 
   currencies (): string {
-    const currencies = this.country?.currencies?.map(obj => obj.name)
+    const currencies = this.country?.currencies?.map((obj) => obj.name)
     return currencies?.join(', ') ?? ''
   }
 
@@ -61,6 +69,8 @@ export class CountryDetailComponent implements OnInit {
 
   getBorderCountries (allCountries: Country[]): void {
     const borders = this.country?.borders ?? []
-    this.borderCountries = allCountries.filter(obj => borders.includes(obj.alpha3Code))?.map(obj => obj.name)
+    this.borderCountries = allCountries
+      .filter((obj) => borders.includes(obj.alpha3Code))
+      ?.map((obj) => obj.name)
   }
 }
