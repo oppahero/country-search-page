@@ -30,6 +30,7 @@ describe('NavComponent', () => {
   })
 
   // it('script loaded', () => {
+  // TODO: falta desarrollar test
   //   expect(scriptServiceSpy.loadScript).toHaveBeenCalled()
   // })
 })

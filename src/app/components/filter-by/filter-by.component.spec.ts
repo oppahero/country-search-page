@@ -40,6 +40,7 @@ describe('FilterByComponent', () => {
   })
 
   // it('should raise selected event when clicked (triggerEventHandler)', () => {
+  // TODO: falta desarrollar test
   //   let selectedRegion: string | undefined
 
   //   component.selectedEvent.subscribe((region: string) => (selectedRegion = region))
