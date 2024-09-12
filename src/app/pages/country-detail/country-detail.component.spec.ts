@@ -44,45 +44,72 @@ describe('CountryDetailComponent', () => {
     countriesServiceSpy.getAllCountries.and.returnValue(of(mockedData))
 
     fixture.detectChanges()
+
+    await fixture.whenStable()
   })
 
   it('should create', () => {
     expect(component).toBeTruthy()
   })
 
-  // it('#consult should receive the name country to search', (done: DoneFn) => {
+  // it('#consult should call getAllCountries', () => {
   // TODO: falta desarrollar test
+
+  //   expect(countriesServiceSpy.getAllCountries).toHaveBeenCalled()
+  //   expect(component.findCountry).toHaveBeenCalledWith(mockedData.data, 'american samoa')
+  //   expect(component.getBorderCountries).toHaveBeenCalledWith(mockedData.data)
+
   //   // countriesServiceSpy.getAllCountries().subscribe({
   //   //   next: (res: any) => {
   //   //     expect(res).toBeDefined()
-  //   //     console.log(res.data)
-  //   //     component.findCountry(res.data, 'american-samoa')
+
+  //   //     // component.findCountry(countries, 'american-samoa')
   //   //     // expect(component.findCountry).toHaveBeenCalled()
   //   //     done()
+  //   //   },
+  //   //   error: (err: any) => {
+  //   //     expect(err).toBeDefined()
   //   //   }
   //   // })
   // })
 
-  // it('#languages should return the speak languages in the country, separated by commas', () => {
-  // TODO: falta desarrollar test
+  it('#findCountry find the expect country ', () => {
+    component.findCountry(mockedData.data, 'american samoa')
+    expect(component.country).toBe(expectedCountry)
+  })
 
-  //   // component.country = expectedCountry
-  //   // const languages = component.languages()
+  it('#languages should return the speak languages in the country, separated by commas', () => {
+    component.country = expectedCountry
+    const languages = component.languages()
+    expect(languages).toBe('English, Samoan')
+  })
 
-  //   // expect(languages).toBe('English, Samoan')
-  // })
+  it('#currencies should return the currencies in the country, separated by commas', () => {
+    component.country = expectedCountry
+    const currencies = component.currencies()
+    expect(currencies).toBe('United States Dollar')
+  })
 
-  // it('#currencies should return the currencies in the country, separated by commas', () => {
-  // TODO: falta desarrollar test
-  // })
+  it('#currencies should return the country topLevelDomain, separated by commas', () => {
+    component.country = expectedCountry
+    const topLevelDomain = component.topLevelDomain()
+    expect(topLevelDomain).toBe('.as')
+  })
 
-  // it('#currencies should return the country topLevelDomain, separated by commas', () => {
-  // TODO: falta desarrollar test
-  // })
+  it('#getBorderCountries Branh 1 - 2 : should find the names of the border countries from the country received', () => {
+    component.country = mockedData.data[0]
+    component.getBorderCountries(mockedData.data)
 
-  // it('#getBorderCountries ', () => {
-  // TODO: falta desarrollar test
-  // })
+    expect(component.borderCountries).toEqual([
+      'China', 'Iran (Islamic Republic of)', 'Pakistan', 'Tajikistan',
+      'Turkmenistan', 'Uzbekistan'
+    ])
+
+    // Branch 2
+    component.country = undefined
+    component.getBorderCountries(mockedData.data)
+    expect(component.borderCountries).toEqual([])
+  })
 
   it('#back should create', () => {
     component.back()

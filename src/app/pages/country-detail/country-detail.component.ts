@@ -23,12 +23,6 @@ export class CountryDetailComponent implements OnInit {
   country: Country | undefined
   borderCountries!: string[]
 
-  // constructor (
-  //   private activatedRoute: ActivatedRoute,
-  //   private countriesService: CountriesService,
-  //   private location: Location
-  // ) {}
-
   ngOnInit (): void {
     const param: string = this.activatedRoute.snapshot.params['country']
     const countryName = param.replace(/-/g, ' ')
@@ -38,8 +32,8 @@ export class CountryDetailComponent implements OnInit {
   consult (countryName: string): void {
     this.countriesService.getAllCountries().subscribe({
       next: (countries) => {
-        // this.findCountry(countries, countryName)
-        // this.getBorderCountries(countries)
+        this.findCountry(countries, countryName)
+        this.getBorderCountries(countries)
       },
       error: (e) => console.error(e)
     })

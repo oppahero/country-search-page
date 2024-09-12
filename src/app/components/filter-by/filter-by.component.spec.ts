@@ -4,7 +4,7 @@ import { FilterByComponent } from './filter-by.component'
 import { FormsModule } from '@angular/forms'
 import mock from '../../../../db.json'
 
-fdescribe('FilterByComponent', () => {
+describe('FilterByComponent', () => {
   let component: FilterByComponent
   let fixture: ComponentFixture<FilterByComponent>
 
