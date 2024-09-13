@@ -17,7 +17,7 @@ describe('CountriesService', () => {
     expect(service).toBeTruthy()
   })
 
-  it('url should be in localhost:3000', () => {
+  it('json-server url should be localhost:3000', () => {
     expect(service.url).toEqual('http://localhost:3000/data')
   })
 

@@ -1,8 +1,8 @@
 import { Injectable } from '@angular/core'
 import { Country } from '../interfaces'
 import { HttpClient } from '@angular/common/http'
-import { Observable } from 'rxjs'
-// import * as data from './db.json'
+import { Observable, of } from 'rxjs'
+import * as data from '../../../db.json'
 
 @Injectable({
   providedIn: 'root'
@@ -18,13 +18,12 @@ export class CountriesService {
   //   return (await data.json()) ?? []
   // }
 
-  getAllCountries (): Observable<Country[]> {
-    return this.http.get<Country[]>(this.url)
-  }
+  // getAllCountries (): Observable<Country[]> {
+  //   return this.http.get<Country[]>(this.url)
+  // }
 
-  // return this.http.get<Country[]>(this.url).pipe(
-  //   tap((countries) => {
-  //     return countries.find(country => country.name.localeCompare(countryName))
-  //   })
-  // )
+  getAllCountries (): Observable<Country[]> {
+    const localData = data.data as Country[]
+    return of(localData)
+  }
 }
