@@ -22,6 +22,10 @@ export class NavComponent implements OnInit {
   constructor (private readonly scriptService: ScriptService) {}
 
   ngOnInit (): void {
+    this.loadScript()
+  }
+
+  loadScript (): void {
     this.scriptService.loadScript({ id: 'swithTheme', url: 'assets/js/index.js' })
       .then(data => {
         console.log('script loaded ', data)
