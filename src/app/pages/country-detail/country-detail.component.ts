@@ -34,8 +34,7 @@ export class CountryDetailComponent implements OnInit {
       next: (countries) => {
         this.findCountry(countries, countryName)
         this.getBorderCountries(countries)
-      },
-      error: (e) => console.error(e)
+      }
     })
   }
 
