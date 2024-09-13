@@ -16,7 +16,7 @@ import {
 export class CountryListComponent implements OnInit {
   countriesService: CountriesService = inject(CountriesService)
   countries!: Country[]
-  filterCountries!: Country[]
+  filterCountries: Country[] = []
   region: string = ''
 
   ngOnInit (): void {
@@ -24,8 +24,7 @@ export class CountryListComponent implements OnInit {
       next: (v) => {
         this.filterCountries = v
         this.countries = v
-      },
-      error: (e) => console.error(e)
+      }
     })
   }
 

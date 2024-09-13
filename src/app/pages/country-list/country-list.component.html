@@ -9,7 +9,7 @@
 </section>
 
 <section class="content">
-  @for (country of filterCountries; track $index) {
+  @for (country of filterCountries; track country?.demonym) {
   <app-item-card [country]="country"></app-item-card>
   }
 </section>
